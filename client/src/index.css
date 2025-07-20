@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core Colors from palette */
+  --blue-500: #238de4;
+  --green-500: #24a855;
+  --yellow-600: #f7a820;
+  --red-500: #e4455f;
+  
+  /* Halftones */
+  --blue-halftone: #7ccfff;
+  --green-halftone: #6dd086;
+  --yellow-halftone: #ffd477;
+  --red-halftone: #ff7da1;
+  
+  /* Pastels */
+  --blue-pastel: #b3e5fc;
+  --green-pastel: #c8f7c5;
+  --yellow-pastel: #fff435;
+  --red-pastel: #fdd8dd;
+  
+  /* Grayscale */
+  --off-white: #f9f9f9;
+  --black-02: #1e1e1e;
+  --gray-custom: hsl(0, 0%, 20%);
+
+  /* Shadcn theme variables */
+  --background: var(--black-02);
+  --foreground: var(--off-white);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(0, 0%, 64%);
+  --popover: var(--gray-custom);
+  --popover-foreground: var(--off-white);
+  --card: var(--gray-custom);
+  --card-foreground: var(--off-white);
+  --border: hsl(0, 0%, 30%);
+  --input: hsl(0, 0%, 25%);
+  --primary: var(--blue-500);
+  --primary-foreground: var(--off-white);
+  --secondary: hsl(0, 0%, 25%);
+  --secondary-foreground: var(--off-white);
+  --accent: hsl(0, 0%, 25%);
+  --accent-foreground: var(--off-white);
+  --destructive: var(--red-500);
+  --destructive-foreground: var(--off-white);
+  --ring: var(--blue-500);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-blue-custom {
+    color: var(--blue-500);
+  }
+  
+  .text-green-custom {
+    color: var(--green-500);
+  }
+  
+  .text-yellow-custom {
+    color: var(--yellow-600);
+  }
+  
+  .text-red-custom {
+    color: var(--red-500);
+  }
+  
+  .bg-blue-custom {
+    background-color: var(--blue-500);
+  }
+  
+  .bg-green-custom {
+    background-color: var(--green-500);
+  }
+  
+  .bg-yellow-custom {
+    background-color: var(--yellow-600);
+  }
+  
+  .bg-red-custom {
+    background-color: var(--red-500);
+  }
+  
+  .border-blue-custom {
+    border-color: var(--blue-500);
+  }
+  
+  .border-green-custom {
+    border-color: var(--green-500);
+  }
+  
+  .border-yellow-custom {
+    border-color: var(--yellow-600);
+  }
+  
+  .border-red-custom {
+    border-color: var(--red-500);
+  }
+  
+  .hover\:bg-blue-custom\/80:hover {
+    background-color: hsl(207, 90%, 54%, 0.8);
+  }
+  
+  .hover\:bg-green-custom\/80:hover {
+    background-color: hsl(122, 37%, 46%, 0.8);
+  }
+  
+  .hover\:bg-yellow-custom\/80:hover {
+    background-color: hsl(30, 100%, 50%, 0.8);
+  }
+  
+  .hover\:bg-red-custom\/80:hover {
+    background-color: hsl(354, 65%, 52%, 0.8);
+  }
+}
