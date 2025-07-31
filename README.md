@@ -47,6 +47,7 @@ Neste arquivo você deve listar os benefícios das diferentes cotas de patrocín
 - **value**: Valor unitário do benefício
 - **quantity**: Quantidade de unidades daquele benefício (opcional, valor padrão: 1). Se não for possível aumentar a quantidade de elementos para o benefício, este campo pode ser ignorado.
 - **maxQuantity**: Quantidade máxima de itens que o patrocinador pode solicitar daquele benefício (opcional, valor padrão: 1). Se não for possível aumentar a quantidade de elementos para o benefício, este campo pode ser ignorado.
+- **required**: Propriedade booleana que diz se esse benefício é negociável ou não. Seu valor padrão é falso. Quando marcado como verdadeiro, não é possível removê-lo de uma cota.
 
 Depois de preencher todos os benefícios disponíveis para o evento, será necessário exportar cada um deles individualmente e adicioná-los ao array `BenefitList` que se encontra no final do arquivo, conforme demonstrado nos dados de exemplo.
 
@@ -63,7 +64,7 @@ Dentro desse arquivo, você deve criar as cotas instanciando um novo objeto `Quo
 
 Depois de definir todas as cotas necessárias para a sua aplicação, adicione-as ao array `QuotaList` no fim do arquivo.
 
-> **Importante**: No arquivo é definida uma cota personalizada sem benefícios. Essa cota não deve ser removida, pois faz parte da lógica referente à criação personalizada de cotas.
+> **Importante**: No arquivo é definida uma cota personalizada com os benefícios obrigatórios definidos no arquivo de benefícios. Essa cota não deve ser removida, pois faz parte da lógica referente à criação personalizada de cotas.
 
 ##### EventDescription
 
