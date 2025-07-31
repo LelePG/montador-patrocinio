@@ -10,10 +10,10 @@ interface HeaderProps {
 export default function Header({ isAdmin }: HeaderProps) {
 	return (
 		<header className="bg-card border-b border-border">
-			<div className="max-w-7xl mx-auto px-4 pb-8">
+			<div className="max-w-7xl mx-auto px-4 pb-10 pt-16">
 				<div className="text-center relative">
 					{isAdmin && (
-						<div className="absolute top-8 right-0">
+						<div className="absolute  right-0">
 							<Link href="/quotes">
 								<Button
 									variant="outline"
@@ -26,9 +26,7 @@ export default function Header({ isAdmin }: HeaderProps) {
 							</Link>
 						</div>
 					)}
-					<h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-custom to-green-custom bg-clip-text text-transparent">
-						Sistema de Patrocínio
-					</h1>
+
 					<h2 className="text-2xl font-semibold text-yellow-custom mb-4">
 						{eventDescription.name}
 					</h2>

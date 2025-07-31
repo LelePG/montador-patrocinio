@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { Package as PackageIcon, List, FileText } from "lucide-react";
+import {
+	Package as PackageIcon,
+	List,
+	FileText,
+	FileQuestion,
+} from "lucide-react";
 import QuotaCard from "@/components/quota-card";
 import BenefitSelector from "@/components/benefit-selector";
 import TotalCalculator from "@/components/total-calculator";
@@ -27,6 +32,28 @@ export default function Home({ isAdmin }: HomeProps) {
 			<Header isAdmin={isAdmin} />
 
 			<main className="max-w-7xl mx-auto px-4 py-8">
+				<section className="mb-8">
+					<h3 className="text-2xl font-bold mb-6 flex items-center">
+						<FileQuestion className="text-red-custom mr-3" size={28} />
+						Como utilizar?
+					</h3>
+					<p className="text-muted-foreground mb-4">
+						Você tem interesse em patrocinar o DevFest Pelotas 2025? Selecione
+						uma cota fixa ou crie uma personalizada com os benefícios que melhor
+						se adequam às suas necessidades. Depois de montar a sua cota, clique
+						em <strong>Enviar Proposta</strong> e aguarde o contato do GDG
+						Pelotas.
+					</p>
+					<p>
+						<strong className="text-gray-400">
+							Este formulário é apenas a submissão da sua proposta de patrocínio
+							e não representa um contrato de patrocínio formal. Após a
+							submissão da proposta, o GDG Pelotas entrará em contato para
+							alinhar os detalhes do patrocínio e definir os próximos passos.
+						</strong>
+					</p>
+				</section>
+
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 					<div className="lg:col-span-2">
 						<section className="mb-8">
