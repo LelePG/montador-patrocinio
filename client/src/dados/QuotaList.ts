@@ -4,6 +4,7 @@ import {
 	agradecimentos_redes_sociais,
 	envio_peca_email_por_peca,
 	exibicao_video_30s_por_video,
+	RequiredBenefits,
 } from "./BenefitList";
 
 export const quotaA = new Quota({
@@ -25,9 +26,9 @@ export const quotaB = new Quota({
 
 export const personalizedQuota = new Quota({
 	id: "personalizada",
-	name: "Personalziada",
+	name: "Personalizada",
 	description: "Cota personalizada",
-	benefits: [],
+	benefits: [...RequiredBenefits],
 });
 
 export const QuotaList = [quotaA, quotaB];

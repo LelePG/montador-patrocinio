@@ -7,6 +7,7 @@ export interface BenefitProps {
 	value: number;
 	quantity?: number;
 	maxQuantity?: number;
+	required?: boolean;
 }
 
 export class Benefit {
@@ -16,6 +17,7 @@ export class Benefit {
 	value: number;
 	quantity?: number;
 	maxQuantity?: number;
+	required?: boolean;
 
 	constructor({
 		id,
@@ -24,6 +26,7 @@ export class Benefit {
 		value,
 		quantity,
 		maxQuantity,
+		required = false,
 	}: BenefitProps) {
 		this.id = z.string().min(5).parse(id);
 		this.name = z.string().min(2).max(100).parse(name);
@@ -37,6 +40,7 @@ export class Benefit {
 			maxQuantity !== undefined
 				? z.number().int().min(0).parse(maxQuantity)
 				: undefined;
+		this.required = z.boolean().optional().parse(required);
 	}
 
 	static fromJSON(json: string): Benefit {
@@ -61,6 +65,7 @@ export class Benefit {
 			value: this.value,
 			quantity: this.quantity,
 			maxQuantity: this.maxQuantity,
+			required: this.required,
 		};
 	}
 

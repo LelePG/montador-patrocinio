@@ -50,7 +50,10 @@ export class Quota {
 	}
 
 	removeBenefit(benefit: Benefit) {
-		this.benefits = this.benefits.filter((b) => b.id !== benefit.id);
+		console.log("lo");
+		this.benefits = this.benefits.filter(
+			(b) => b.id !== benefit.id || b.required
+		);
 		return new Quota({
 			...this.toJSON(),
 			id: "personalizada",

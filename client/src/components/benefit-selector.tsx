@@ -16,7 +16,6 @@ export default function BenefitSelector({
 	quota,
 	handleChangeQuota,
 }: BenefitSelectorProps) {
-	
 	const [checked, setChecked] = useState(quota.hasBenefit(benefit));
 
 	useEffect(() => {
@@ -24,6 +23,9 @@ export default function BenefitSelector({
 	}, [quota, benefit]);
 
 	function handleCheckedChange(checked: boolean) {
+		if (benefit.required) {
+			return;
+		}
 		setChecked(checked);
 		if (checked) {
 			handleChangeQuota(quota.addBenefit(benefit));
@@ -49,6 +51,7 @@ export default function BenefitSelector({
 					<div className="flex items-center space-x-4 flex-1">
 						<Checkbox
 							checked={checked}
+							disabled={benefit.required}
 							onCheckedChange={(c: boolean) => handleCheckedChange(c)}
 							className="data-[state=checked]:bg-blue-custom data-[state=checked]:border-blue-custom"
 						/>

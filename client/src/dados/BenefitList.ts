@@ -25,6 +25,7 @@ export const agradecimentos_redes_sociais: BenefitProps = {
 		"Agradecimentos especiais nas redes sociais do evento com menção à sua marca",
 	value: 1200,
 	maxQuantity: 1,
+	required: true,
 };
 
 export const BenefitList = [
@@ -32,3 +33,5 @@ export const BenefitList = [
 	envio_peca_email_por_peca,
 	agradecimentos_redes_sociais,
 ];
+
+export const RequiredBenefits = BenefitList.filter((b) => b.required);
