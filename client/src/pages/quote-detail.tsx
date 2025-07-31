@@ -23,7 +23,6 @@ import {
 	Copy,
 	CheckCircle,
 } from "lucide-react";
-import { format } from "date-fns";
 import { useState } from "react";
 import Loader from "@/components/loader";
 import { FinalQuote } from "@/core";
@@ -155,7 +154,7 @@ export default function QuoteDetail() {
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					{/* Main Content */}
 					<div className="lg:col-span-2 space-y-6">
-						<Card className="shadow-sm border-gray-200 ">
+						<Card className="shadow-sm border-gray-200 bg-transparent">
 							<CardHeader className="pb-4">
 								<CardTitle className="flex items-center gap-2 text-gray-200">
 									Informações de Contato
@@ -191,7 +190,7 @@ export default function QuoteDetail() {
 						</Card>
 
 						{/* Selected Benefits */}
-						<Card className="shadow-sm border-gray-200">
+						<Card className="shadow-sm border-gray-200 bg-transparent">
 							<CardHeader className="pb-4">
 								<CardTitle className="flex items-center gap-2 text-gray-200">
 									<Package className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -237,7 +236,7 @@ export default function QuoteDetail() {
 					{/* Sidebar */}
 					<div className="space-y-6">
 						{/* Financial Summary */}
-						<Card className="shadow-sm border-gray-200 dark:border-gray-700">
+						<Card className="shadow-sm border-gray-200 dark:border-gray-700 bg-transparent">
 							<CardHeader className="pb-4">
 								<CardTitle className="flex items-center gap-2 text-gray-200">
 									<DollarSign className="h-5 w-5 text-green-600 dark:text-green-400" />
@@ -269,7 +268,7 @@ export default function QuoteDetail() {
 						</Card>
 
 						{quote.comments && (
-							<Card className="shadow-sm border-gray-200 ">
+							<Card className="shadow-sm border-gray-200 bg-transparent ">
 								<CardHeader className="pb-4">
 									<CardTitle className="flex items-center gap-2 text-gray-200">
 										<MessageSquare className="h-5 w-5 text-orange-600 dark:text-orange-400" />
