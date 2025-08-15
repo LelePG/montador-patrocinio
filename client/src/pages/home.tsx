@@ -46,10 +46,14 @@ export default function Home({ isAdmin }: HomeProps) {
 					</p>
 					<p>
 						<strong className="text-gray-400">
-							Este formulário é apenas a submissão da sua proposta de patrocínio
-							e não representa um contrato de patrocínio formal. Após a
-							submissão da proposta, o GDG Pelotas entrará em contato para
-							alinhar os detalhes do patrocínio e definir os próximos passos.
+							Este formulário é apenas a{" "}
+							<span className="text-yellow-600">
+								submissão da sua proposta de patrocínio e não representa um
+								contrato de patrocínio formal.
+							</span>{" "}
+							Após a submissão da proposta, o GDG Pelotas entrará em contato
+							para alinhar os detalhes do patrocínio e definir os próximos
+							passos.
 						</strong>
 					</p>
 				</section>
@@ -59,9 +63,9 @@ export default function Home({ isAdmin }: HomeProps) {
 						<section className="mb-8">
 							<h3 className="text-2xl font-bold mb-6 flex items-center">
 								<PackageIcon className="text-blue-custom mr-3" size={28} />
-								Cotas Fixas
+								Cotas
 							</h3>
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 								{packages.map((currentQuota, i) => (
 									<QuotaCard
 										key={currentQuota.id}

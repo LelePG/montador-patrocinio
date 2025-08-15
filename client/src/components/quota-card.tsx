@@ -75,8 +75,8 @@ export default function QuotaCard({
 			}`}
 			onClick={onSelect}
 		>
-			<CardContent className="p-6">
-				<div className="flex items-center justify-between mb-3">
+			<CardContent className="p-6 flex flex-col justify-between h-full">
+				<div className="flex flex-col items-center justify-between mb-3">
 					<h4 className={`text-xl font-bold ${colors.text}`}>{quota.name}</h4>
 					<span className={`text-2xl font-bold ${colors.text}`}>
 						{quota.formattedValue}

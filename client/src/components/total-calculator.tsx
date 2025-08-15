@@ -40,8 +40,8 @@ export default function TotalCalculator({
 		},
 		onSuccess: (result) => {
 			toast({
-				title: "Proposta enviada com sucesso!",
-				description: `Sua proposta foi registrada!`,
+				title: "Proposta registrada com sucesso!",
+				description: `Aguarde o contato da equipe do GDG Pelotas!`,
 			});
 			setShowForm(false);
 			onClearSelection();
@@ -120,18 +120,20 @@ export default function TotalCalculator({
 										className="flex justify-between items-center py-1"
 									>
 										<div className="flex-1">
-											<span className="text-foreground">
+											<span className="text-foreground text-justify">
 												{benefit.description}
 											</span>
-											{benefit!.quantity! > 1 && (
+											{!quota.freezed && benefit!.quantity! > 1 && (
 												<Badge variant="secondary" className="ml-2 text-xs">
 													{benefit.quantity}x
 												</Badge>
 											)}
 										</div>
-										<span className="text-green-custom font-semibold ml-2">
-											{benefit.formattedValue}
-										</span>
+										{!quota.freezed && (
+											<span className="text-green-custom font-semibold ml-2">
+												{benefit.formattedValue}
+											</span>
+										)}
 									</div>
 								))
 							)}

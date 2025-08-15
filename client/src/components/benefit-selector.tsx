@@ -51,7 +51,7 @@ export default function BenefitSelector({
 					<div className="flex items-center space-x-4 flex-1">
 						<Checkbox
 							checked={checked}
-							disabled={benefit.required}
+							disabled={benefit.required || quota.freezed}
 							onCheckedChange={(c: boolean) => handleCheckedChange(c)}
 							className="data-[state=checked]:bg-blue-custom data-[state=checked]:border-blue-custom"
 						/>
@@ -79,7 +79,7 @@ export default function BenefitSelector({
 										onChange={(e) =>
 											handleQuantityChange(parseInt(e.target.value) || 1)
 										}
-										disabled={!checked}
+										disabled={!checked || quota.freezed}
 										className="w-16 text-center text-sm"
 									/>
 								</div>

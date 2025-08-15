@@ -27,6 +27,8 @@ export const quotaQuindim = new Quota({
 		{ ...ingresso_dois_dias, quantity: 5 },
 		{ ...envio_peca_email, quantity: 2 },
 	],
+	value: 7000,
+	freezed: true,
 });
 
 export const cotaCamafeu = new Quota({
@@ -42,6 +44,8 @@ export const cotaCamafeu = new Quota({
 		fala_5min_empresa,
 		{ ...envio_peca_email, quantity: 1 },
 	],
+	value: 4000,
+	freezed: true,
 });
 
 export const cotaBemCasado = new Quota({
@@ -55,6 +59,8 @@ export const cotaBemCasado = new Quota({
 		ingresso_valor_primeiro,
 		{ ...ingresso_dois_dias, quantity: 2 },
 	],
+	value: 2000,
+	freezed: true,
 });
 
 export const cotaNinho = new Quota({
@@ -66,6 +72,8 @@ export const cotaNinho = new Quota({
 		postagem_peca_rede_social,
 		ingresso_valor_primeiro,
 	],
+	value: 1000,
+	freezed: true,
 });
 
 export const personalizedQuota = new Quota({
@@ -75,4 +83,10 @@ export const personalizedQuota = new Quota({
 	benefits: [...RequiredBenefits],
 });
 
-export const QuotaList = [quotaQuindim, cotaCamafeu, cotaBemCasado, cotaNinho];
+export const QuotaList = [
+	quotaQuindim,
+	cotaCamafeu,
+	cotaBemCasado,
+	cotaNinho,
+	personalizedQuota,
+];

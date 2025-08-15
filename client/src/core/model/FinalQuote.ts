@@ -1,6 +1,5 @@
 import { Quota, QuotaProps } from "./Quota";
 import { z } from "zod";
-import { v4 } from "uuid";
 
 export interface FinalQuoteProps extends QuotaProps {
 	contactName: string;

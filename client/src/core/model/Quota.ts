@@ -6,6 +6,8 @@ export interface QuotaProps {
 	name: string;
 	description: string;
 	benefits: BenefitProps[];
+	value?: number;
+	freezed?: boolean;
 }
 
 export class Quota {
@@ -13,12 +15,16 @@ export class Quota {
 	name: string;
 	description: string;
 	benefits: Benefit[];
+	value?: number;
+	freezed?: boolean;
 
-	constructor({ id, name, description, benefits }: QuotaProps) {
+	constructor({ id, name, description, benefits, value, freezed }: QuotaProps) {
 		this.id = z.string().min(5).parse(id);
 		this.name = z.string().min(2).max(100).parse(name);
 		this.description = z.string().min(10).max(500).parse(description);
 		this.benefits = benefits.map((b) => new Benefit(b));
+		this.value = z.number().min(500).optional().parse(value);
+		this.freezed = z.boolean().optional().parse(freezed);
 	}
 
 	get namesBenefits() {
@@ -30,6 +36,9 @@ export class Quota {
 	}
 
 	get totalValue() {
+		if (this.value) {
+			return this.value;
+		}
 		return this.benefits.reduce((acc, b) => acc + b.totalValue, 0);
 	}
 
@@ -39,18 +48,23 @@ export class Quota {
 			name: this.name,
 			description: this.description,
 			benefits: this.benefits.map((b) => (b.toJSON ? b.toJSON() : b)),
+			value: this.value,
+			freezed: this.freezed,
 		};
 	}
 
 	addBenefit(benefit: Benefit) {
-		if (!this.hasBenefit(benefit)) {
+		if (!this.freezed && !this.hasBenefit(benefit)) {
 			this.benefits.push(benefit);
 		}
 		return new Quota(this.toJSON());
 	}
 
 	removeBenefit(benefit: Benefit) {
-		console.log("lo");
+		if (this.freezed) {
+			return new Quota(this.toJSON());
+		}
+
 		this.benefits = this.benefits.filter(
 			(b) => b.id !== benefit.id || b.required
 		);
@@ -63,6 +77,9 @@ export class Quota {
 	}
 
 	changeBenefitQuantity(benefit: Benefit, newQuantity: number) {
+		if (this.freezed) {
+			return new Quota(this.toJSON());
+		}
 		this.benefits.find((b) => b.id === benefit.id)?.setQuantity(newQuantity);
 		return new Quota({
 			...this.toJSON(),
